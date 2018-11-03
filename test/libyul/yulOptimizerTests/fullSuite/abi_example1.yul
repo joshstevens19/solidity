@@ -458,166 +458,197 @@
 // ----
 // fullSuite
 // {
-//     let _246 := mload(0)
-//     let abi_encode_pos := 0x20
-//     let abi_encode_length_5 := mload(_246)
-//     mstore(0x20, abi_encode_length_5)
-//     abi_encode_pos := 64
-//     let abi_encode_srcPtr := add(_246, 0x20)
-//     for {
-//         let abi_encode_i_5 := 0
-//     }
-//     lt(abi_encode_i_5, abi_encode_length_5)
 //     {
-//         abi_encode_i_5 := add(abi_encode_i_5, 1)
-//     }
-//     {
-//         let _456 := mload(abi_encode_srcPtr)
-//         let abi_encode_pos_1_6 := abi_encode_pos
-//         let abi_encode_srcPtr_1_5 := _456
+//         let _1 := 0x20
+//         let _2 := 0
+//         let _244 := mload(_2)
+//         let abi_encode_pos := _1
+//         let abi_encode_length_5 := mload(_244)
+//         mstore(_1, abi_encode_length_5)
+//         let abi_encode_pos_12 := 64
+//         abi_encode_pos := abi_encode_pos_12
+//         let abi_encode_srcPtr := add(_244, _1)
 //         for {
-//             let abi_encode_i_6_5 := 0
+//             let abi_encode_i_5 := _2
 //         }
-//         lt(abi_encode_i_6_5, 0x3)
+//         lt(abi_encode_i_5, abi_encode_length_5)
 //         {
-//             abi_encode_i_6_5 := add(abi_encode_i_6_5, 1)
-//         }
-//         {
-//             mstore(abi_encode_pos_1_6, and(mload(abi_encode_srcPtr_1_5), 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF))
-//             abi_encode_srcPtr_1_5 := add(abi_encode_srcPtr_1_5, 0x20)
-//             abi_encode_pos_1_6 := add(abi_encode_pos_1_6, 0x20)
-//         }
-//         abi_encode_srcPtr := add(abi_encode_srcPtr, 0x20)
-//         abi_encode_pos := add(abi_encode_pos, 0x60)
-//     }
-//     let _248 := mload(0x40)
-//     let _250 := mload(0x20)
-//     if slt(sub(_248, _250), 128)
-//     {
-//         revert(0, 0)
-//     }
-//     let abi_decode_value0_2_4 := calldataload(_250)
-//     let abi_decode_value1_2_4 := calldataload(add(_250, 32))
-//     let abi_decode_offset_18 := calldataload(add(_250, 64))
-//     if gt(abi_decode_offset_18, 0xffffffffffffffff)
-//     {
-//         revert(0, 0)
-//     }
-//     let _474 := add(_250, abi_decode_offset_18)
-//     if iszero(slt(add(_474, 0x1f), _248))
-//     {
-//         revert(0, 0)
-//     }
-//     let abi_decode_length_4_1 := calldataload(_474)
-//     if gt(abi_decode_length_4_1, 0xffffffffffffffff)
-//     {
-//         revert(0, 0)
-//     }
-//     let abi_decode_array_allo__371_1 := mul(abi_decode_length_4_1, 0x20)
-//     let abi_decode_array_4_1_1 := allocateMemory(add(abi_decode_array_allo__371_1, 0x20))
-//     let abi_decode_dst_4_7 := abi_decode_array_4_1_1
-//     mstore(abi_decode_array_4_1_1, abi_decode_length_4_1)
-//     let abi_decode_offset_5_1_1 := add(_474, 0x20)
-//     abi_decode_dst_4_7 := add(abi_decode_array_4_1_1, 0x20)
-//     let abi_decode_src_4_5 := abi_decode_offset_5_1_1
-//     if gt(add(add(_474, abi_decode_array_allo__371_1), 0x20), _248)
-//     {
-//         revert(0, 0)
-//     }
-//     for {
-//         let abi_decode_i_4_5 := 0
-//     }
-//     lt(abi_decode_i_4_5, abi_decode_length_4_1)
-//     {
-//         abi_decode_i_4_5 := add(abi_decode_i_4_5, 1)
-//     }
-//     {
-//         mstore(abi_decode_dst_4_7, calldataload(abi_decode_src_4_5))
-//         abi_decode_dst_4_7 := add(abi_decode_dst_4_7, 0x20)
-//         abi_decode_src_4_5 := add(abi_decode_src_4_5, 0x20)
-//     }
-//     let abi_decode_offset_19 := calldataload(add(_250, 96))
-//     if gt(abi_decode_offset_19, 0xffffffffffffffff)
-//     {
-//         revert(0, 0)
-//     }
-//     let _481 := add(_250, abi_decode_offset_19)
-//     if iszero(slt(add(_481, 0x1f), _248))
-//     {
-//         revert(0, 0)
-//     }
-//     let abi_decode_length_1_1 := calldataload(_481)
-//     if gt(abi_decode_length_1_1, 0xffffffffffffffff)
-//     {
-//         revert(0, 0)
-//     }
-//     let abi_decode_array_1_1_1 := allocateMemory(add(mul(abi_decode_length_1_1, 0x20), 0x20))
-//     let abi_decode_dst_1_7 := abi_decode_array_1_1_1
-//     mstore(abi_decode_array_1_1_1, abi_decode_length_1_1)
-//     let abi_decode_offset_2_1_1 := add(_481, 0x20)
-//     abi_decode_dst_1_7 := add(abi_decode_array_1_1_1, 0x20)
-//     let abi_decode_src_1_5 := abi_decode_offset_2_1_1
-//     if gt(add(add(_481, mul(abi_decode_length_1_1, 0x40)), 0x20), _248)
-//     {
-//         revert(0, 0)
-//     }
-//     for {
-//         let abi_decode_i_1_5 := 0
-//     }
-//     lt(abi_decode_i_1_5, abi_decode_length_1_1)
-//     {
-//         abi_decode_i_1_5 := add(abi_decode_i_1_5, 1)
-//     }
-//     {
-//         if iszero(slt(add(abi_decode_src_1_5, 0x1f), _248))
-//         {
-//             revert(0, 0)
-//         }
-//         if 0
-//         {
-//             revert(0, 0)
-//         }
-//         let allocateMe_memPtr_5 := mload(64)
-//         let allocateMe_newFreePtr := add(allocateMe_memPtr_5, 64)
-//         if or(gt(allocateMe_newFreePtr, 0xffffffffffffffff), lt(allocateMe_newFreePtr, allocateMe_memPtr_5))
-//         {
-//             revert(0, 0)
-//         }
-//         mstore(64, allocateMe_newFreePtr)
-//         let abi_decode_abi_decode_dst_2_5 := allocateMe_memPtr_5
-//         let abi_decode_abi_decode_src_2_5 := abi_decode_src_1_5
-//         if gt(add(abi_decode_src_1_5, 64), _248)
-//         {
-//             revert(0, 0)
-//         }
-//         for {
-//             let abi_decode_abi_decode_i_2_5 := 0
-//         }
-//         lt(abi_decode_abi_decode_i_2_5, 0x2)
-//         {
-//             abi_decode_abi_decode_i_2_5 := add(abi_decode_abi_decode_i_2_5, 1)
+//             abi_encode_i_5 := add(abi_encode_i_5, 1)
 //         }
 //         {
-//             mstore(abi_decode_abi_decode_dst_2_5, calldataload(abi_decode_abi_decode_src_2_5))
-//             abi_decode_abi_decode_dst_2_5 := add(abi_decode_abi_decode_dst_2_5, 0x20)
-//             abi_decode_abi_decode_src_2_5 := add(abi_decode_abi_decode_src_2_5, 0x20)
+//             let _323 := mload(abi_encode_srcPtr)
+//             let abi_encode_pos_1_6 := abi_encode_pos
+//             let abi_encode_length_6_1 := 0x3
+//             let abi_encode_srcPtr_1_5 := _323
+//             for {
+//                 let abi_encode_i_6_5 := _2
+//             }
+//             lt(abi_encode_i_6_5, abi_encode_length_6_1)
+//             {
+//                 abi_encode_i_6_5 := add(abi_encode_i_6_5, 1)
+//             }
+//             {
+//                 mstore(abi_encode_pos_1_6, and(mload(abi_encode_srcPtr_1_5), 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF))
+//                 abi_encode_srcPtr_1_5 := add(abi_encode_srcPtr_1_5, _1)
+//                 abi_encode_pos_1_6 := add(abi_encode_pos_1_6, _1)
+//             }
+//             abi_encode_srcPtr := add(abi_encode_srcPtr, _1)
+//             abi_encode_pos := add(abi_encode_pos, 0x60)
 //         }
-//         mstore(abi_decode_dst_1_7, allocateMe_memPtr_5)
-//         abi_decode_dst_1_7 := add(abi_decode_dst_1_7, 0x20)
-//         abi_decode_src_1_5 := add(abi_decode_src_1_5, 0x40)
+//         let _325 := 0x40
+//         let _246 := mload(_325)
+//         let _247 := mload(_1)
+//         let abi_decode_value0_2_1
+//         let abi_decode_value0_2 := abi_decode_value0_2_1
+//         let abi_decode_value1_2_1
+//         let abi_decode_value1_2 := abi_decode_value1_2_1
+//         let abi_decode_value2_1
+//         let abi_decode_value2 := abi_decode_value2_1
+//         let abi_decode_value3_1
+//         let abi_decode_value3 := abi_decode_value3_1
+//         if slt(sub(_246, _247), 128)
+//         {
+//             revert(_2, _2)
+//         }
+//         {
+//             abi_decode_value0_2 := calldataload(_247)
+//         }
+//         {
+//             abi_decode_value1_2 := calldataload(add(_247, 32))
+//         }
+//         {
+//             let abi_decode_offset_18 := calldataload(add(_247, abi_encode_pos_12))
+//             let _332 := 0xffffffffffffffff
+//             if gt(abi_decode_offset_18, _332)
+//             {
+//                 revert(_2, _2)
+//             }
+//             let _334 := add(_247, abi_decode_offset_18)
+//             if iszero(slt(add(_334, 0x1f), _246))
+//             {
+//                 revert(_2, _2)
+//             }
+//             let abi_decode_length_4_1 := calldataload(_334)
+//             if gt(abi_decode_length_4_1, _332)
+//             {
+//                 revert(_2, _2)
+//             }
+//             let abi_decode_array_allo__320 := mul(abi_decode_length_4_1, _1)
+//             let abi_decode_array_4_1_1 := allocateMemory(add(abi_decode_array_allo__320, _1))
+//             let abi_decode_dst_4_7 := abi_decode_array_4_1_1
+//             mstore(abi_decode_array_4_1_1, abi_decode_length_4_1)
+//             let abi_decode_offset_5_1_1 := add(_334, _1)
+//             abi_decode_dst_4_7 := add(abi_decode_array_4_1_1, _1)
+//             let abi_decode_src_4_5 := abi_decode_offset_5_1_1
+//             if gt(add(add(_334, abi_decode_array_allo__320), _1), _246)
+//             {
+//                 revert(_2, _2)
+//             }
+//             for {
+//                 let abi_decode_i_4_5 := _2
+//             }
+//             lt(abi_decode_i_4_5, abi_decode_length_4_1)
+//             {
+//                 abi_decode_i_4_5 := add(abi_decode_i_4_5, 1)
+//             }
+//             {
+//                 mstore(abi_decode_dst_4_7, calldataload(abi_decode_src_4_5))
+//                 abi_decode_dst_4_7 := add(abi_decode_dst_4_7, _1)
+//                 abi_decode_src_4_5 := add(abi_decode_src_4_5, _1)
+//             }
+//             abi_decode_value2 := abi_decode_array_4_1_1
+//         }
+//         {
+//             let abi_decode_offset_19 := calldataload(add(_247, 96))
+//             let _337 := 0xffffffffffffffff
+//             if gt(abi_decode_offset_19, _337)
+//             {
+//                 revert(_2, _2)
+//             }
+//             let _339 := add(_247, abi_decode_offset_19)
+//             let abi_decode__248_1 := 0x1f
+//             if iszero(slt(add(_339, abi_decode__248_1), _246))
+//             {
+//                 revert(_2, _2)
+//             }
+//             let abi_decode_length_1_1 := calldataload(_339)
+//             if gt(abi_decode_length_1_1, _337)
+//             {
+//                 revert(_2, _2)
+//             }
+//             let abi_decode_array_1_1_1 := allocateMemory(add(mul(abi_decode_length_1_1, _1), _1))
+//             let abi_decode_dst_1_7 := abi_decode_array_1_1_1
+//             mstore(abi_decode_array_1_1_1, abi_decode_length_1_1)
+//             let abi_decode_offset_2_1_1 := add(_339, _1)
+//             abi_decode_dst_1_7 := add(abi_decode_array_1_1_1, _1)
+//             let abi_decode_src_1_5 := abi_decode_offset_2_1_1
+//             if gt(add(add(_339, mul(abi_decode_length_1_1, _325)), _1), _246)
+//             {
+//                 revert(_2, _2)
+//             }
+//             for {
+//                 let abi_decode_i_1_5 := _2
+//             }
+//             lt(abi_decode_i_1_5, abi_decode_length_1_1)
+//             {
+//                 abi_decode_i_1_5 := add(abi_decode_i_1_5, 1)
+//             }
+//             {
+//                 if iszero(slt(add(abi_decode_src_1_5, abi_decode__248_1), _246))
+//                 {
+//                     revert(_2, _2)
+//                 }
+//                 let abi_decode_abi_decode_length_2 := 0x2
+//                 if _2
+//                 {
+//                     revert(_2, _2)
+//                 }
+//                 let allocateMe_memPtr_5 := mload(abi_encode_pos_12)
+//                 let allocateMe_newFreePtr := add(allocateMe_memPtr_5, abi_encode_pos_12)
+//                 if or(gt(allocateMe_newFreePtr, _337), lt(allocateMe_newFreePtr, allocateMe_memPtr_5))
+//                 {
+//                     revert(_2, _2)
+//                 }
+//                 mstore(abi_encode_pos_12, allocateMe_newFreePtr)
+//                 let abi_decode_abi_decode_dst_2 := allocateMe_memPtr_5
+//                 let abi_decode_abi_decode_src_2 := abi_decode_src_1_5
+//                 if gt(add(abi_decode_src_1_5, abi_encode_pos_12), _246)
+//                 {
+//                     revert(_2, _2)
+//                 }
+//                 for {
+//                     let abi_decode_abi_decode_i_2 := _2
+//                 }
+//                 lt(abi_decode_abi_decode_i_2, abi_decode_abi_decode_length_2)
+//                 {
+//                     abi_decode_abi_decode_i_2 := add(abi_decode_abi_decode_i_2, 1)
+//                 }
+//                 {
+//                     mstore(abi_decode_abi_decode_dst_2, calldataload(abi_decode_abi_decode_src_2))
+//                     abi_decode_abi_decode_dst_2 := add(abi_decode_abi_decode_dst_2, _1)
+//                     abi_decode_abi_decode_src_2 := add(abi_decode_abi_decode_src_2, _1)
+//                 }
+//                 mstore(abi_decode_dst_1_7, allocateMe_memPtr_5)
+//                 abi_decode_dst_1_7 := add(abi_decode_dst_1_7, _1)
+//                 abi_decode_src_1_5 := add(abi_decode_src_1_5, _325)
+//             }
+//             abi_decode_value3 := abi_decode_array_1_1_1
+//         }
+//         sstore(abi_decode_value0_2, abi_decode_value1_2)
+//         sstore(abi_decode_value2, abi_decode_value3)
+//         sstore(_2, abi_encode_pos)
 //     }
-//     sstore(abi_decode_value0_2_4, abi_decode_value1_2_4)
-//     sstore(abi_decode_array_4_1_1, abi_decode_array_1_1_1)
-//     sstore(0, abi_encode_pos)
 //     function allocateMemory(size) -> memPtr
 //     {
-//         let memPtr_5 := mload(64)
+//         let _199 := 64
+//         let memPtr_5 := mload(_199)
 //         memPtr := memPtr_5
 //         let newFreePtr := add(memPtr_5, size)
 //         if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr_5))
 //         {
-//             revert(0, 0)
+//             let _204 := 0
+//             revert(_204, _204)
 //         }
-//         mstore(64, newFreePtr)
+//         mstore(_199, newFreePtr)
 //     }
 // }
